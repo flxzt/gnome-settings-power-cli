@@ -21,7 +21,7 @@ def run_cmd_capture_stdout(command, cwd, error_message):
 
 
 def cli_cmd(args):
-    return "cargo run --manifest-path {} --target-dir {} -- {}".format(
+    return "cargo run --release --manifest-path {} --target-dir {} -- {}".format(
         os.path.join(src_dir, "Cargo.toml"), os.path.join(src_dir, "target"), " ".join(args))
 
 
