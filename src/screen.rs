@@ -20,7 +20,7 @@ mod tests {
     fn screen_step_up_down() -> anyhow::Result<()> {
         let connection = zbus::Connection::session().await.unwrap();
         let proxy = gnome_power::ScreenProxy::new(&connection).await?;
-        let (new_level_perc, _) = prox.step_up().await?;
-        let (new_level_perc, _) = prox.step_down().await?;
+        let (_new_brightness, _) = prox.step_up().await?;
+        let (_new_brightness, _) = prox.step_down().await?;
     }
 }

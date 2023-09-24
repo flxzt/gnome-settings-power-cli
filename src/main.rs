@@ -1,4 +1,5 @@
 pub(crate) mod cli;
+pub(crate) mod keyboard;
 pub(crate) mod screen;
 
 #[tokio::main]
