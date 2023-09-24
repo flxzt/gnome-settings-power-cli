@@ -15,13 +15,16 @@ pub(crate) trait Keyboard {
     fn toggle(&self) -> zbus::Result<i32>;
 }
 
-#[cfg(tests)]
+#[cfg(test)]
 mod tests {
-    #[test]
-    fn keyboard_step_up_down() -> anyhow::Result<()> {
+    use super::*;
+
+    #[tokio::test]
+    async fn keyboard_step_up_down() -> anyhow::Result<()> {
         let connection = zbus::Connection::session().await.unwrap();
         let proxy = KeyboardProxy::new(&connection).await?;
-        let _new_brightness = prox.step_up().await?;
-        let _new_brightness = prox.step_down().await?;
+        let _new_brightness = proxy.step_up().await?;
+        let _new_brightness = proxy.step_down().await?;
+        Ok(())
     }
 }

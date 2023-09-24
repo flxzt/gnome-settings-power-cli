@@ -14,13 +14,16 @@ pub(crate) trait Screen {
     fn step_down(&self) -> zbus::Result<(i32, String)>;
 }
 
-#[cfg(tests)]
+#[cfg(test)]
 mod tests {
-    #[test]
-    fn screen_step_up_down() -> anyhow::Result<()> {
+    use super::*;
+
+    #[tokio::test]
+    async fn screen_step_up_down() -> anyhow::Result<()> {
         let connection = zbus::Connection::session().await.unwrap();
-        let proxy = gnome_power::ScreenProxy::new(&connection).await?;
-        let (_new_brightness, _) = prox.step_up().await?;
-        let (_new_brightness, _) = prox.step_down().await?;
+        let proxy = ScreenProxy::new(&connection).await?;
+        let (_new_brightness, _) = proxy.step_up().await?;
+        let (_new_brightness, _) = proxy.step_down().await?;
+        Ok(())
     }
 }
