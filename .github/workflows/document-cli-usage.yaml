@@ -17,13 +17,16 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Install dependencies
+        run: |
+          sudo apt install -y python3
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
-      - name: build and run cli help and write output to file
-        run: cargo run --release -- --help > ${{ env.DOCUMENT_CLI_USAGE_FILE }}
+      - name: run script that writes cli usage documentation to specified file
+        run: python3 build-aux/document-cli-usage.py ${{ env.DOCUMENT_CLI_USAGE_FILE }}
       - name: git commit and push changed file
         run: |
           git config --global user.name 'Github Actions'
