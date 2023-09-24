@@ -1,3 +1,5 @@
+### top-level help: ### 
+
 Usage: gnome-settings-power-cli <COMMAND>
 
 Commands:
@@ -8,3 +10,39 @@ Commands:
 Options:
   -h, --help     Print help
   -V, --version  Print version
+
+
+### subcommand keyboard help: ###
+
+Keyboard power settings
+
+Usage: gnome-settings-power-cli keyboard <COMMAND>
+
+Commands:
+  brightness         Print the current keyboard brightness
+  set-brightness     Set a new keyboard brightness
+  brightness+        Step up keyboard brightness
+  brightness-        Step down keyboard brightness
+  brightness-toggle  Toggle keyboard brightness
+  help               Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help  Print help
+
+
+### subcommand screen help: ###
+
+Screen power settings
+
+Usage: gnome-settings-power-cli screen <COMMAND>
+
+Commands:
+  brightness      Print the current screen brightness
+  set-brightness  Set a new screen brightness
+  brightness+     Step up screen brightness
+  brightness-     Step down screen brightness
+  help            Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help  Print help
+
